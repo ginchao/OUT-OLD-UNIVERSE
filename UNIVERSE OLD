@@ -16,6 +16,19 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetSe
 wait(0.2)
 end
 end)
+tgls:Toggle("Tự động bán Mũi Tên",false, function(v)
+getgenv().autosell = true
+while autosell==truedo
+local args = {
+    [1] = "4955641110101-130111010128883457356709-59007691110101",
+    [2] = "Arrow"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("newremotes"):WaitForChild("SellItem"):FireServer(unpack(args))
+wait(0.4)
+end
+end)
+
 local tgls = serv:Channel("Người Chơi")
 
 tgls:Toggle("Chạy X Nhảy",false, function(Val)
