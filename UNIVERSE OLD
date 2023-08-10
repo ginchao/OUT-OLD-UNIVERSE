@@ -1,0 +1,206 @@
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+local win = DiscordLib:Window("Lucky Block Battleground")
+local serv = win:Server("AUT:OLD UNIVERSE", "cc")
+local tgls = serv:Channel("Khi item spawn nó không tự nhặt lại Phải tư tắt bật lại")
+tgls:Toggle("Nhặt Tiền",false, function(v)
+getgenv().automoney = v
+while automoney==true do
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1)
+wait()
+end
+end)
+tgls:Toggle("Nhặt Mũi Tên",false, function(v)
+getgenv().autoarrow = v
+while autoarrow==true do
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)
+wait(0.2)
+end
+end)
+local tgls = serv:Channel("Người Chơi")
+
+tgls:Toggle("Chạy X Nhảy",false, function(Val)
+if Val then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 220
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 290
+else
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 10
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end
+end)
+
+tgls:Toggle("Thần Nhãn",false, function(v)
+
+
+
+local esp_settings = { 
+    textsize = 8,
+    colour = 255,255,255
+}
+ 
+local gui = Instance.new("BillboardGui")
+local esp = Instance.new("TextLabel",gui)
+
+
+ 
+gui.Name = "Cracked esp";
+gui.ResetOnSpawn = false
+gui.AlwaysOnTop = true;
+gui.LightInfluence = 0;
+gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+esp.BackgroundColor3 = Color3.fromRGB(0, 255, 0);
+esp.Text = ""
+esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+esp.BorderSizePixel = 10;
+esp.BorderColor3 = Color3.new(esp_settings.colour)
+esp.BorderSizePixel = 0
+esp.Font = "GothamSemibold"
+esp.TextSize = esp_settings.textsize
+esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
+ 
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+        if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Cracked esp")==nil then
+            esp.Text = "{"..v.Name.."}"
+            gui:Clone().Parent = v.Character.Head 
+    end
+end
+end)
+end)
+tgls:Button("WallSky", function()
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+Local = game:GetService('Players').LocalPlayer
+Char  = Local.Character
+touched,tpdback = false, false
+Local.CharacterAdded:connect(function(char)
+    if script.Disabled ~= true then
+        wait(.25)
+        loc = Char.HumanoidRootPart.Position
+        Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+    end
+end)
+game:GetService('UserInputService').InputBegan:connect(function(key)
+    if key.KeyCode == Enum.KeyCode.Equals then
+        if script.Disabled ~= true then
+            script.Disabled = true
+            print'you may re-execute'
+        end
+    end
+end)
+box = Instance.new('Part',workspace)
+box.Anchored = true
+box.CanCollide = true
+box.Size = Vector3.new(100,1,100)
+box.Position = Vector3.new(0,700,0)
+box.Touched:connect(function(part)
+    if (part.Parent.Name == Local.Name) then
+        if touched == false then
+            touched = true
+            function apply()
+                if script.Disabled ~= true then
+                    no = Char.HumanoidRootPart:Clone()
+                    wait(.25)
+                    Char.HumanoidRootPart:Destroy()
+                    no.Parent = Char
+                    Char:MoveTo(loc)
+                    touched = false
+                end end
+            if Char then
+                apply()
+            end
+        end
+    end
+end)
+repeat wait() until Char
+loc = Char.HumanoidRootPart.Position
+Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+end)
+tgls:Button("Fast Mode", function()
+local ToDisable = {
+	Textures = true,
+	VisualEffects = true,
+	Parts = true,
+	Particles = true,
+	Sky = true
+}
+
+local ToEnable = {
+	FullBright = false
+}
+
+local Stuff = {}
+
+for _, v in next, game:GetDescendants() do
+	if ToDisable.Parts then
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("BasePart") then
+			v.Material = Enum.Material.SmoothPlastic
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.Particles then
+		if v:IsA("ParticleEmitter") or v:IsA("Smoke") or v:IsA("Explosion") or v:IsA("Sparkles") or v:IsA("Fire") then
+			v.Enabled = false
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.VisualEffects then
+		if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("DepthOfFieldEffect") or v:IsA("SunRaysEffect") then
+			v.Enabled = false
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.Textures then
+		if v:IsA("Decal") or v:IsA("Texture") then
+			v.Texture = ""
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.Sky then
+		if v:IsA("Sky") then
+			v.Parent = nil
+			table.insert(Stuff, 1, v)
+		end
+	end
+end
+
+game:GetService("TestService"):Message("Effects Disabler Script : Successfully disabled "..#Stuff.." assets / effects. Settings :")
+
+for i, v in next, ToDisable do
+	print(tostring(i)..": "..tostring(v))
+end
+
+if ToEnable.FullBright then
+    local Lighting = game:GetService("Lighting")
+    
+    Lighting.FogColor = Color3.fromRGB(255, 255, 255)
+    Lighting.FogEnd = math.huge
+    Lighting.FogStart = math.huge
+    Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+    Lighting.Brightness = 5
+    Lighting.ColorShift_Bottom = Color3.fromRGB(255, 255, 255)
+    Lighting.ColorShift_Top = Color3.fromRGB(255, 255, 255)
+    Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+    Lighting.Outlines = true
+end
+end)
+
+local drops = serv:Channel("Dịch Chuyển")
+
+local drop = drops:Dropdown("Chọn",{"Wall 1","Đấu trường","Khu Vực Spawn Item"}, function()
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(228.555878, 309.218567, -97.0083618, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268)
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.CellArena.MeshPart .CFrame
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.ItemIsland.Baseplate .CFrame
+end)
+local drops = serv:Channel("Npc")
+
+local drop = drops:Dropdown("Chọn",{"Stand Storage"}, function()
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.NPCS.EpicFlow203["Custom sign!"] .CFrame
+end)
