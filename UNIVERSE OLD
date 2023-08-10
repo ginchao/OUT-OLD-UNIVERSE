@@ -17,8 +17,8 @@ wait(0.2)
 end
 end)
 tgls:Toggle("Tự động bán Mũi Tên",false, function(v)
-getgenv().autosell = true
-while autosell==truedo
+getgenv().autosell = v
+while autosell==true do
 local args = {
     [1] = "4955641110101-130111010128883457356709-59007691110101",
     [2] = "Arrow"
