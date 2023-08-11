@@ -46,7 +46,7 @@ tgls:Toggle("Thần Nhãn",false, function(v)
 
 
 local esp_settings = { 
-    textsize = 8,
+    textsize = 12,
     colour = 255,255,255
 }
  
@@ -69,7 +69,7 @@ esp.BorderSizePixel = 0
 esp.Font = "GothamSemibold"
 esp.TextSize = esp_settings.textsize
 esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
- 
+
 game:GetService("RunService").RenderStepped:Connect(function()
     for i,v in pairs (game:GetService("Players"):GetPlayers()) do
         if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Cracked esp")==nil then
