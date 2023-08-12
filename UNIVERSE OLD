@@ -1,5 +1,5 @@
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
-local win = DiscordLib:Window("Htt Veg")
+local win = DiscordLib:Window("Ginchao Hub")
 local serv = win:Server("AUT:OLD UNIVERSE", "cc")
 local tgls = serv:Channel("Khi item spawn nó không tự nhặt lại Phải tư tắt bật lại")
 tgls:Toggle("Nhặt Tiền",false, function(v)
