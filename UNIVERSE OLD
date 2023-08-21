@@ -6,14 +6,14 @@ tgls:Toggle("Nhặt Tiền",false, function(v)
 getgenv().automoney = v
 while automoney==true do
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1)
-wait()
+wait(0.1)
 end
 end)
 tgls:Toggle("Nhặt Mũi Tên",false, function(v)
 getgenv().autoarrow = v
 while autoarrow==true do
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)
-wait(0.2)
+wait(0.1)
 end
 end)
 tgls:Toggle("Tự động bán Mũi Tên",false, function(v)
@@ -46,7 +46,7 @@ tgls:Toggle("Thần Nhãn",false, function(v)
 
 
 local esp_settings = { 
-    textsize = 12,
+    textsize = 14,
     colour = 255,255,255
 }
  
