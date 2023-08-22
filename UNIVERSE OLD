@@ -1,33 +1,38 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
-local win = DiscordLib:Window("Ginchao Hub")
-local serv = win:Server("AUT:OLD UNIVERSE", "cc")
-local tgls = serv:Channel("Khi item spawn nó không tự nhặt lại Phải tư tắt bật lại")
-tgls:Toggle("Nhặt Tiền",false, function(v)
-getgenv().automoney = v
-while automoney==true do
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1)
-wait(0.1)
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")() 
+ local win = DiscordLib:Window("Ginchao Hub") 
+ local serv = win:Server("AUT:OLD UNIVERSE", "cc") 
+ local tgls = serv:Channel("GrabItem") 
+ tgls:Toggle("Nhặt Tiền",false, function(v) 
+ getgenv().automoney = v 
+ while automoney==true do 
+ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1) 
+ wait(0.1) 
+ end 
+ end) 
+ tgls:Toggle("Nhặt Mũi Tên",false, function(v) 
+ getgenv().autoarrow = v 
+ while autoarrow==true do 
+ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1) 
+wait(0.1) 
+ end 
+ end) 
+tgls:Toggle("Nhặt Tất Cả item (Khi nó spawn cũng tự nhặt và Không thể tắt)",true, function() 
+while wait(0.2) do
+for i, v in pairs(game:GetService("Workspace").Items:GetChildren()) do
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1)
+end
 end
 end)
-tgls:Toggle("Nhặt Mũi Tên",false, function(v)
-getgenv().autoarrow = v
-while autoarrow==true do
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)
-wait(0.1)
-end
-end)
-tgls:Toggle("Tự động bán Mũi Tên",false, function(v)
-getgenv().autosell = v
-while autosell==true do
-local args = {
-    [1] = "4955641110101-130111010128883457356709-59007691110101",
-    [2] = "Arrow"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("newremotes"):WaitForChild("SellItem"):FireServer(unpack(args))
-wait(0.4)
-end
-end)
+ tgls:Toggle("Tự động bán Mũi Tên",false, function(v) 
+ getgenv().autosell = v 
+ while autosell==true do 
+ local args = { 
+     [1] = "4955641110101-130111010128883457356709-59007691110101", 
+     [2] = "Arrow" 
+ }  game:GetService("ReplicatedStorage"):WaitForChild("newremotes"):WaitForChild("SellItem"):FireServer(unpack(args)) 
+ wait(0.3) 
+ end
+ end)
 
 local tgls = serv:Channel("Người Chơi")
 
