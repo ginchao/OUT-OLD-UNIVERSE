@@ -12,11 +12,11 @@ tgls:Toggle("Nhặt Tiền",false, function(v)
 	end)  
 end)
 tgls:Toggle("Nhặt Mũi Tên",false, function(v)  
-		getgenv().autoarrow = v  
-		while autoarrow==true do wait() 
-			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
-			wait()
-		end  
+	getgenv().autoarrow = v  
+	while autoarrow==true do wait() 
+		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
+		wait()
+	end  
 end)  
 tgls:Toggle("Nhặt Tất Cả item",true, function(v)  
 	getgenv().grabtools = v 
@@ -54,18 +54,42 @@ end)
 
 
 local drops = serv:Channel("Dịch Chuyển") 
-
-local drop = drops:Dropdown("Chọn",{"Wall 1","Đấu trường","Khu Vực Spawn Item"}, function() 
-	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-	rootPart.CFrame = CFrame.new(228.555878, 309.218567, -97.0083618, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268) 
-	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-	rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.CellArena.MeshPart .CFrame 
-	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-	rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.ItemIsland.Baseplate .CFrame 
+local drop = drops:Dropdown("Chọn",{"Colossum", "Nhà Đỏ", "Sân Giữa", "Items Island", "Trạm tàu", "Cafe", "Desert Shop", "Secret", "IDK"}, function(bool) 
+	local plr = game.Players.LocalPlayer
+	local char = plr.Character or plr.Character:AddedWait()
+	local hrp = char.HumanoidRootPart
+	if char.Humanoid.Health > 0 then
+		if bool == "Colossum" then
+			hrp.CFrame = CFrame.new(-250.223343, 445.057922, -266.25119, 0.829041123, -7.3600579e-09, 0.559187591, -5.07788762e-08, 1, 8.84458728e-08, -0.559187591, -1.01720182e-07, 0.829041123)
+		elseif bool == 	"Nhà Đỏ" then
+			hrp.CFrame = CFrame.new(-176.40799, 342.812134, -567.169495, -0.989433467, 3.93083788e-08, -0.144987777, 5.14835925e-08, 1, -8.02220086e-08, 0.144987777, -8.68388241e-08, -0.989433467)
+		elseif bool == "Sân Giữa" then
+			hrp.CFrame = CFrame.new(16.5727062, 304.552063, -812.346924, 0.813442647, 2.00080628e-08, -0.581645131, 1.94487448e-08, 1, 6.15985556e-08, 0.581645131, -6.14191649e-08, 0.813442647)
+		elseif bool == "Items Island" then	
+			hrp.CFrame = CFrame.new(574.65802, 300.59494, -992.700562, 0.438354075, 5.54052804e-08, -0.8988024, -3.76707199e-08, 1, 4.32710969e-08, 0.8988024, 1.48904729e-08, 0.438354075)
+		elseif bool == "Trạm tàu" then
+			hrp.CFrame = CFrame.new(-769.569702, 310.316956, -1070.15356, 0.145328984, 1.49659929e-08, -0.989383399, -3.38464048e-08, 1, 1.015494e-08, 0.989383399, 3.20112648e-08, 0.145328984)
+		elseif bool == "Cafe" then
+			hrp.CFrame = CFrame.new(-348.129517, 319.706665, -1251.61633, -0.805837214, 4.84452611e-09, -0.592137098, 5.47196066e-09, 1, 7.34655337e-10, 0.592137098, -2.64813838e-09, -0.805837214)
+		elseif bool == "Desert Shop" then
+			hrp.CFrame = CFrame.new(-627.318542, 321.042847, -702.937622, 0.863984764, 5.11991605e-09, 0.503517926, 3.07911918e-08, 1, -6.30027941e-08, -0.503517926, 6.99373714e-08, 0.863984764)
+		elseif bool == "Secret" then
+			hrp.CFrame = CFrame.new(8.12519169, 30.9999981, 261.333466, 0.0239104368, -6.9117938e-08, 0.999714077, -4.75836526e-09, 1, 6.9251513e-08, -0.999714077, -6.4128387e-09, 0.0239104368)
+		elseif bool == "IDK" then
+			hrp.CFrame = CFrame.new(-636.264099, 31.9999981, 280.841309, -0.997090101, 4.14656309e-10, -0.0762317255, 3.14529125e-10, 1, 1.32546429e-09, 0.0762317255, 1.29763023e-09, -0.997090101)
+		end
+	end
 end) 
 local drops = serv:Channel("Npc") 
 
-local drop = drops:Dropdown("Chọn",{"Stand Storage"}, function() 
-	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-	rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.NPCS.EpicFlow203["Custom sign!"] .CFrame 
+local drop = drops:Dropdown("Chọn",{"Useful NPCs"}, function(v) 
+	local plr = game.Players.LocalPlayer
+	local char = plr.Character or plr.Character:AddedWait()
+	local hrp = char.HumanoidRootPart
+	if char.Humanoid.Health > 0 then
+		if v == "Useful NPCs" then
+			hrp.CFrame = CFrame.new(412.625183, 305.958466, -100.505653, -0.69421351, -2.41984814e-08, -0.71976912, 3.71374611e-08, 1, -6.94386699e-08, 0.71976912, -7.49356559e-08, -0.69421351)
+		end
+	end
 end)
+drops:Label("Script được cãi tiến bởi itsjustTri25")
