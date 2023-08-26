@@ -1,71 +1,71 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()  
-  local win = DiscordLib:Window("Ginchao Hub")  
-  local serv = win:Server("AUT:OLD UNIVERSE", "cc")  
-  local tgls = serv:Channel("GrabItem")  
-  tgls:Toggle("Nhặt Tiền",false, function(v)  
-  getgenv().automoney = v  
-spawn(function() 
-  while automoney==true do wait() 
-  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1) 
-wait()
-  end
-  end)  
-  tgls:Toggle("Nhặt Mũi Tên",false, function(v)  
-  getgenv().autoarrow = v  
-  while autoarrow==true do wait() 
-  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
-wait()
-  end)  
-  end)  
-tgls:Toggle("Nhặt Tất Cả item",true, function(v)  
-getgenv().grabtools = v 
-spawn(function() 
-while grabtools == true do wait() 
-for i, v in pairs(game:GetService("Workspace").Items:GetChildren()) do 
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1) 
-wait()
-end 
-end 
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()  
+local win = DiscordLib:Window("Ginchao Hub")  
+local serv = win:Server("AUT:OLD UNIVERSE", "cc")  
+local tgls = serv:Channel("GrabItem")  
+tgls:Toggle("Nhặt Tiền",false, function(v)  
+	getgenv().automoney = v  
+	spawn(function() 
+		while automoney==true do wait() 
+			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1) 
+			wait()
+		end
+	end)  
+end)
+tgls:Toggle("Nhặt Mũi Tên",false, function(v)  
+		getgenv().autoarrow = v  
+		while autoarrow==true do wait() 
+			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
+			wait()
+		end  
+end)  
+tgls:Toggle("Nhặt Tất Cả item",true, function(v)  
+	getgenv().grabtools = v 
+	spawn(function() 
+		while grabtools == true do wait() 
+			for i, v in pairs(game:GetService("Workspace").Items:GetChildren()) do 
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1) 
+				wait()
+			end 
+		end 
+	end) 
 end) 
+tgls:Toggle("Tự động bán Mũi Tên",false, function(v)  
+	getgenv().autosell = v  
+	while autosell==true do  
+		local args = {  
+			[1] = "4955641110101-130111010128883457356709-59007691110101",  
+			[2] = "Arrow"  
+		}  game:GetService("ReplicatedStorage"):WaitForChild("newremotes"):WaitForChild("SellItem"):FireServer(unpack(args))  
+		wait(0.3)  
+	end 
 end) 
-  tgls:Toggle("Tự động bán Mũi Tên",false, function(v)  
-  getgenv().autosell = v  
-  while autosell==true do  
-  local args = {  
-      [1] = "4955641110101-130111010128883457356709-59007691110101",  
-      [2] = "Arrow"  
-  }  game:GetService("ReplicatedStorage"):WaitForChild("newremotes"):WaitForChild("SellItem"):FireServer(unpack(args))  
-  wait(0.3)  
-  end 
-  end) 
-  
+
 local tgls = serv:Channel("Người Chơi") 
-  
+
 tgls:Toggle("Chạy X Nhảy",false, function(Val) 
-if Val then 
-game.Players.LocalPlayer.Character.Humanoid.JumpPower = 220 
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 290 
-else 
-game.Players.LocalPlayer.Character.Humanoid.JumpPower = 10 
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 
-end 
+	if Val then 
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 220 
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 290 
+	else 
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 10 
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 
+	end 
 end) 
-   
-  
+
+
 local drops = serv:Channel("Dịch Chuyển") 
-  
+
 local drop = drops:Dropdown("Chọn",{"Wall 1","Đấu trường","Khu Vực Spawn Item"}, function() 
-local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-rootPart.CFrame = CFrame.new(228.555878, 309.218567, -97.0083618, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268) 
-local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.CellArena.MeshPart .CFrame 
-local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.ItemIsland.Baseplate .CFrame 
+	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
+	rootPart.CFrame = CFrame.new(228.555878, 309.218567, -97.0083618, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268) 
+	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
+	rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.CellArena.MeshPart .CFrame 
+	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
+	rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.ItemIsland.Baseplate .CFrame 
 end) 
 local drops = serv:Channel("Npc") 
-  
-local drop = drops:Dropdown("Chọn",{"Stand Storage"}, function() 
-local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
-rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.NPCS.EpicFlow203["Custom sign!"] .CFrame 
-end)
 
+local drop = drops:Dropdown("Chọn",{"Stand Storage"}, function() 
+	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
+	rootPart.CFrame =game:GetService("Workspace")["AUT MAP"].Map.NPCS.EpicFlow203["Custom sign!"] .CFrame 
+end)
