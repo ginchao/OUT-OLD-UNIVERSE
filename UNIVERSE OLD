@@ -1,6 +1,6 @@
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()  
 local win = DiscordLib:Window("Ginchao Hub")  
-local serv = win:Server("AUT:OLD UNIVERSE", "cc")  
+local serv = win:Server("AUT:OLD UNIVERSE", "")  
 local tgls = serv:Channel("GrabItem")  
 tgls:Toggle("Nhặt Tiền",false, function(v)  
 	getgenv().automoney = v  
