@@ -4,24 +4,26 @@ local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/daw
  local tgls = serv:Channel("GrabItem") 
  tgls:Toggle("Nhặt Tiền",false, function(v) 
  getgenv().automoney = v 
- while automoney==true do 
- firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1) 
- wait(0.1) 
- end 
+spawn(function()
+ while automoney==true do wait()
+ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1)
+ end)
  end) 
  tgls:Toggle("Nhặt Mũi Tên",false, function(v) 
  getgenv().autoarrow = v 
- while autoarrow==true do 
+ while autoarrow==true do wait()
  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1) 
-wait(0.1) 
- end 
  end) 
-tgls:Toggle("Nhặt Tất Cả item (Khi nó spawn cũng tự nhặt và Không thể tắt)",true, function() 
-while wait(0.2) do
+ end) 
+tgls:Toggle("Nhặt Tất Cả item",true, function(v) 
+getgenv().grabtools = v
+spawn(function()
+while grabtools == true do wait()
 for i, v in pairs(game:GetService("Workspace").Items:GetChildren()) do
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1)
 end
 end
+end)
 end)
  tgls:Toggle("Tự động bán Mũi Tên",false, function(v) 
  getgenv().autosell = v 
