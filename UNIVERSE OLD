@@ -40,8 +40,22 @@ tgls:Toggle("Tự động bán Mũi Tên",false, function(v)
 	end 
 end) 
 
-local tgls = serv:Channel("Người Chơi") 
-
+local tgls = serv:Channel("Người Chơi")
+local plrlist = {}
+local plr = nil
+for i, v in pairs(game:GetService("Players"):GetChildren()) do
+table.insert(plrlist,v.Name)
+end
+local tgl = tgls:Dropdown("Choose Player", plrlist, function(m)
+for i, b in pairs(game:GetService("Workspace"):GetChildren()) do
+if m == b.name then
+plr = m
+end
+end
+end)
+tgls:Button("Teleport Player", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
+end)
 tgls:Toggle("Chạy X Nhảy",false, function(Val) 
 	if Val then 
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 220 
