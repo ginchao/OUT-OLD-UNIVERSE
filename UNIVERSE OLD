@@ -22,7 +22,7 @@ spawn(function()
 		wait()
 end)
 	end
-end
+end)
 end)  
 tgls:Toggle("Nhặt Tất Cả item",true, function(v)  
 	getgenv().grabtools = v 
