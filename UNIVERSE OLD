@@ -6,26 +6,34 @@ tgls:Toggle("Nhặt Tiền",false, function(v)
 	getgenv().automoney = v  
 	spawn(function() 
 		while automoney==true do wait() 
+spawn(function()
 			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1) 
 			wait()
+end)
 		end
 	end)  
 end)
 tgls:Toggle("Nhặt Mũi Tên",false, function(v)  
-	getgenv().autoarrow = v  
+	getgenv().autoarrow = v
+spawn(function()
 	while autoarrow==true do wait() 
+spawn(function()
 		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
 		wait()
-	end  
+end)
+	end
+end
 end)  
 tgls:Toggle("Nhặt Tất Cả item",true, function(v)  
 	getgenv().grabtools = v 
 	spawn(function() 
 		while grabtools == true do wait() 
+pcall(function()
 			for i, v in pairs(game:GetService("Workspace").Items:GetChildren()) do 
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1) 
 				wait()
 			end 
+end)
 		end 
 	end) 
 end) 
