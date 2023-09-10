@@ -1,7 +1,7 @@
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()  
 local win = DiscordLib:Window("Test Hub")  
 local serv = win:Server("AUT:OLD UNIVERSE", "")  
-local tgls = serv:Channel("GrabItem")  
+local tgls = serv:Channel("Nhặt Item")  
 tgls:Toggle("Nhặt Tiền",false, function(v)  
 	getgenv().automoney = v  
 	spawn(function() 
@@ -61,6 +61,14 @@ plr = m
 end
 end
 end)
+tgls:Button("Refresh Player", function() 
+ drop:Clear() 
+ for i, v in pairs(game.Players:GetChildren()) do 
+ if v:IsA("Player") then 
+ drop:Add(v.Name) 
+ end 
+ end 
+ end)
 tgls:Button("Teleport Player", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
 end)
