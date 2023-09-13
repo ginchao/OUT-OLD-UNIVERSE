@@ -1,4 +1,4 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()  
+local DiscordLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Discord-Lib/main/Discord-Lib'))()   
 local win = DiscordLib:Window("Test Hub")  
 local serv = win:Server("AUT:OLD UNIVERSE", "")  
 local tgls = serv:Channel("Nhặt Item")  
@@ -123,6 +123,7 @@ local drop = btns:Dropdown("Chọn",{"Useful NPCs"}, function(v)
 	end
 end)
 btns:Label("Script")
+btns:Label("Cre Hub:Grabiel Ynu")
  btns:Button("Viet Nam Piece", function()   loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Viet-Nam-Piece/main/Beta'))()  
   end) 
  btns:Button("Lucky Block Battleground", function() 
