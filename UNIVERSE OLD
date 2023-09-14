@@ -21,7 +21,7 @@ spawn(function()
 spawn(function()
 		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
 		wait()
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace").Items.Money.Handle, 0) wait()  
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle, 0) wait()  
 end)
 	end
 end)
