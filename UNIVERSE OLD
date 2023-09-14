@@ -88,6 +88,14 @@ tgls:Toggle("Chạy X Nhảy",false, function(Val)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 
 	end 
 end) 
+tgls:Button("Rejoin", function() 
+ local tps = game:GetService("TeleportService") 
+                 local plr = game:GetService("Players").LocalPlayer 
+                 tps:TeleportToPlaceInstance(game.PlaceId, game.JobId, plr) 
+         end) 
+ tgls:Button("Reset Character", function() 
+ game.Players.LocalPlayer.Character.Humanoid.Health = 0 
+ end)
 
 
 local drops = serv:Channel("Dịch Chuyển") 
