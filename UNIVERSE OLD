@@ -9,7 +9,7 @@ tgls:Toggle("Nhặt Tiền",false, function(v)
 spawn(function()
 			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Money.Handle , 1) 
 			wait()
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 0) wait()  
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace").Items.Money.Handle, 0) wait()  
 end)
 		end
 	end)  
@@ -21,7 +21,7 @@ spawn(function()
 spawn(function()
 		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Items.Arrow.Handle , 1)  
 		wait()
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 0) wait()  
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace").Items.Money.Handle, 0) wait()  
 end)
 	end
 end)
@@ -34,7 +34,7 @@ pcall(function()
 			for i, v in pairs(game:GetService("Workspace").Items:GetChildren()) do 
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1) 
 				wait()
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 0) wait()  
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 0) wait()  
 			end 
 end)
 		end 
